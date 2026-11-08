@@ -1,0 +1,419 @@
+@import "tailwindcss";
+
+/* Design tokens extracted from the Figma file (YR52ybHQt5zI33CYAU0ovM) */
+@theme {
+  --color-brand: #e10600;
+  --color-brand-dark: #b80500;
+  --color-brand-tint: #fdeceb;
+  --color-navy: #062954;
+  --color-ink: #0e0f12;
+  --color-body: #414040;
+  --color-muted: #6b6f76;
+  --color-line: #e5e5e1;
+  --color-surface: #f6f6f6;
+  --color-photo: #ececea;
+  --shadow-form: 0 16px 24px rgba(51, 31, 20, 0.06);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Motion tokens — the only easing curves used anywhere on the site. */
+:root {
+  --ease-out-quart: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-headline: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-button: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* clears the fixed Header for in-page anchors (e.g. #enquiry) */
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* safety net: slide-in Appear transforms must never cause page-level horizontal scroll */
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Typography scale (H1 / H2 / H3 / lead) — fluid between mobile and the 1440 design */
+@layer components {
+  .t-display {
+    font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+  }
+  .t-h2 {
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+  .t-h3 {
+    font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .t-card-title {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .t-lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+}
+
+/* Mobile type scale (<768px) — overrides within the same cascade layer so it only
+   needs to beat the desktop declarations above by source order, never desktop itself. */
+@media (max-width: 767px) {
+  @layer components {
+    .t-display {
+      font-size: 40px;
+      line-height: 1.06;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .t-h2 {
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+    .t-h3 {
+      font-size: 28px;
+      line-height: 1.12;
+    }
+    .t-lead {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+  }
+}
+
+/* Hero (all pages): one-time reveal + looping Ken Burns / light streaks / glow. Transform & opacity only. */
+@keyframes hero-reveal {
+  from { transform: scale(0.82) translateY(14px); border-radius: 32px; }
+  to { transform: scale(1) translateY(0); border-radius: 0px; }
+}
+@keyframes hero-kenburns {
+  from { transform: scale(1.06) translateX(0%); }
+  to { transform: scale(1.16) translateX(-2.2%); }
+}
+@keyframes hero-streaks-move {
+  from { transform: translateX(0px); }
+  to { transform: translateX(-300px); }
+}
+@keyframes hero-glow-pulse {
+  from { opacity: 0.35; }
+  to { opacity: 0.7; }
+}
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-card-in {
+  from { opacity: 0; transform: translate(28px, 28px); }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes hero-line-up {
+  from { opacity: 0; transform: translateY(110%); }
+  to { opacity: 1; transform: translateY(0%); }
+}
+
+@layer components {
+  .hero-reveal {
+    animation: hero-reveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    will-change: transform;
+  }
+  .hero-kenburns {
+    animation: hero-kenburns 24s ease-in-out 1s infinite alternate;
+    will-change: transform;
+  }
+  .hero-streaks {
+    background-image: repeating-linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0px,
+      rgba(255, 255, 255, 0) 120px,
+      rgba(255, 255, 255, 0.16) 150px,
+      rgba(255, 255, 255, 0) 180px,
+      rgba(255, 255, 255, 0) 300px
+    );
+    mix-blend-mode: screen;
+    /* keep the glints over the road, not washing out the sunset sky */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 38%, black 62%, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 38%, black 62%, black 100%);
+    animation: hero-streaks-move 9s linear infinite;
+    will-change: transform;
+  }
+  .hero-glow {
+    background: radial-gradient(circle at 78% 22%, rgba(255, 153, 71, 0.55), transparent 55%);
+    animation: hero-glow-pulse 6s ease-in-out infinite alternate;
+    will-change: opacity;
+  }
+  .hero-in {
+    opacity: 0;
+    animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-in-card {
+    opacity: 0;
+    animation: hero-card-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1150ms forwards;
+  }
+  .hero-line-mask {
+    overflow: hidden;
+    display: block;
+  }
+  .hero-line {
+    display: block;
+    opacity: 0;
+    animation: hero-line-up 0.7s var(--ease-headline) forwards;
+  }
+}
+
+/* Mobile keeps the same reveal timing/easing but rests as a rounded inset card
+   (matching the mobile Figma frame) instead of animating out to full-bleed. */
+@media (max-width: 767px) {
+  @keyframes hero-reveal {
+    from { transform: scale(0.82) translateY(14px); border-radius: 28px; }
+    to { transform: scale(1) translateY(0); border-radius: 28px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal { animation: none; transform: none; border-radius: 0; }
+  @media (max-width: 767px) {
+    .hero-reveal { border-radius: 28px; }
+  }
+  .hero-kenburns { animation: none; transform: scale(1.06); }
+  .hero-streaks { animation: none; }
+  .hero-glow { animation: none; opacity: 0.5; }
+  .hero-in,
+  .hero-in-card,
+  .hero-line {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------- Scroll-in reveals (Reveal / Appear) */
+/*
+ * Base state is always the final, visible state — server HTML and no-JS/reduced-motion
+ * visitors get fully visible content. The "hidden start" only exists when JS can run
+ * an IntersectionObserver AND the user hasn't asked for reduced motion; the observer
+ * then flips `.is-in` once, synchronously with the hidden state, so nothing ever gets
+ * stuck invisible.
+ */
+@layer components {
+  .reveal,
+  .appear {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal:not(.is-in) {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 18px));
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s var(--ease-out-quart), transform 0.6s var(--ease-out-quart);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  .appear:not(.is-in) { opacity: 0; }
+  .appear.is-in {
+    opacity: 1;
+    transition: opacity 0.7s var(--ease-out-quart), transform 0.7s var(--ease-out-quart), clip-path 0.7s var(--ease-out-quart);
+    transition-delay: var(--appear-delay, 0s);
+  }
+
+  .appear-rise24:not(.is-in) { transform: translateY(24px); }
+  .appear-rise24.is-in { transform: translateY(0); }
+
+  .appear-rise12:not(.is-in) { transform: translateY(12px); }
+  .appear-rise12.is-in { transform: translateY(0); }
+
+  .appear-slide-left:not(.is-in) { transform: translateX(-32px); }
+  .appear-slide-left.is-in { transform: translateX(0); }
+
+  .appear-slide-right:not(.is-in) { transform: translateX(32px); }
+  .appear-slide-right.is-in { transform: translateX(0); }
+
+  .appear-uncover:not(.is-in) { clip-path: inset(0 0 100% 0); opacity: 1; }
+  .appear-uncover.is-in { clip-path: inset(0 0 0% 0); opacity: 1; }
+}
+
+/* ---------------------------------------------------------------------- Parallax image */
+@layer components {
+  .parallax-img {
+    transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img { transform: none; }
+}
+
+/* ------------------------------------------------------------------- Scroll-progress bar */
+@layer components {
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 60;
+    transform-origin: 0 0;
+    transform: scaleX(var(--scroll-progress, 0));
+    background: var(--color-brand);
+    pointer-events: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+}
+
+/* ------------------------------------------------------------------------------ Card hover */
+@layer components {
+  .card-hover {
+    transition: transform 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart);
+  }
+  @media (hover: hover) {
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(14, 15, 18, 0.1);
+    }
+  }
+  .img-zoom {
+    transition: transform 0.5s var(--ease-out-quart);
+  }
+  @media (hover: hover) {
+    .card-hover:hover .img-zoom { transform: scale(1.05); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover { transform: none; box-shadow: none; }
+  .card-hover:hover .img-zoom { transform: none; }
+}
+
+/* -------------------------------------------------------------------------- Nav underline */
+@layer components {
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: right 0.3s var(--ease-out-quart);
+  }
+  @media (hover: hover) {
+    .nav-link:hover::after { right: 0; }
+  }
+}
+
+/* --------------------------------------------------------------------------- Fade-up on mount */
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@layer components {
+  .enter-fade-up {
+    animation: fade-up-in 0.5s var(--ease-out-quart) forwards;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .enter-fade-up { animation: none; }
+}
+
+/* ------------------------------------------------------------------------- Button hover fill */
+@layer components {
+  .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-fill {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    border-radius: 9999px;
+    background: var(--btn-fill, transparent);
+    transform: scale(1);
+    transition: transform 0.5s var(--ease-button);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .btn-label,
+  .btn-circle {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s var(--ease-out-quart), background-color 0.3s var(--ease-out-quart);
+  }
+}
+
+.btn:focus-visible .btn-fill { transform: scale(14); }
+.btn:focus-visible .btn-label,
+.btn:focus-visible .btn-circle { color: var(--btn-hover-text, inherit); }
+
+@media (hover: hover) {
+  .btn:hover .btn-fill { transform: scale(14); }
+  .btn:hover .btn-label,
+  .btn:hover .btn-circle { color: var(--btn-hover-text, inherit); }
+}
+
+.btn:disabled .btn-fill { transform: scale(1) !important; }
+.btn:disabled .btn-label,
+.btn:disabled .btn-circle { color: inherit !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-fill { transition: none; }
+  .btn-label,
+  .btn-circle { transition: none; }
+}
+
+/* -------------------------------------------------------------------------------- FAQ accordion */
+@layer components {
+  .faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s var(--ease-out-quart);
+  }
+  .faq-panel > div { overflow: hidden; }
+  .faq-panel.is-open { grid-template-rows: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-panel { transition: none; }
+}

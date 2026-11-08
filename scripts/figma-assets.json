@@ -1,0 +1,28 @@
+{
+  "fileKey": "YR52ybHQt5zI33CYAU0ovM",
+  "assets": [
+    { "out": "logo.svg",               "node": "2:299",  "mode": "svg",    "note": "Logo (header version, white)" },
+    { "out": "team-avatars.svg",       "node": "2:1774", "mode": "svg",    "note": "About — avatar stack" },
+
+    { "out": "hero-home.png",          "node": "2:296",  "mode": "fill",   "note": "Home hero background photo" },
+    { "out": "hero-branch.png",        "node": "2:1075", "mode": "fill",   "note": "Our Branch hero" },
+    { "out": "hero-contact.png",       "node": "2:1375", "mode": "fill",   "note": "Contact hero" },
+    { "out": "hero-about.png",         "node": "2:1605", "mode": "fill",   "note": "About hero" },
+    { "out": "hero-team.png",          "node": "2:1882", "mode": "fill",   "note": "Our Team hero" },
+
+    { "out": "home-floating-card.png", "node": "2:360",  "mode": "render", "scale": 2, "note": "Home hero floating card photo" },
+    { "out": "home-gallery-1.png",     "node": "2:392",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — tall tile" },
+    { "out": "home-gallery-2.png",     "node": "2:394",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — top right" },
+    { "out": "home-gallery-3.png",     "node": "2:395",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — bottom right" },
+    { "out": "home-feature-1.png",     "node": "2:508",  "mode": "render", "scale": 2, "note": "Home feature row 1 photo" },
+    { "out": "home-feature-2.png",     "node": "2:510",  "mode": "render", "scale": 2, "note": "Home feature row 2 photo" },
+    { "out": "branch-map.png",         "node": "2:1196", "mode": "render", "scale": 2, "note": "Our Branch map illustration" },
+    { "out": "about-1.png",            "node": "2:1686", "mode": "render", "scale": 2, "note": "About row 1 photo" },
+    { "out": "about-2.png",            "node": "2:1688", "mode": "render", "scale": 2, "note": "About row 2 photo" },
+
+    { "out": "team-1.png",             "node": "2:1954", "mode": "fill",   "note": "Team photo — Callum Reid (sample)" },
+    { "out": "team-2.png",             "node": "2:1961", "mode": "fill",   "note": "Team photo — Fiona MacLeod (sample)" },
+    { "out": "team-3.png",             "node": "2:1968", "mode": "fill",   "note": "Team photo — Jamie Stewart (sample)" },
+    { "out": "team-4.png",             "node": "2:1975", "mode": "fill",   "note": "Team photo — Ross Davidson (sample)" }
+  ]
+}
