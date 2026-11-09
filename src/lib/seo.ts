@@ -50,7 +50,6 @@ export const organizationJsonLd = () => ({
   },
   areaServed: { "@type": "Country", name: "United Kingdom" },
   openingHours: "Mo-Su 00:00-23:59",
-  sameAs: Object.values(site.social),
   ...(site.phone ? { telephone: site.phone } : {}),
   ...(site.email ? { email: site.email } : {}),
 });

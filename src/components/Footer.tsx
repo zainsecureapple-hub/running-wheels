@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import { SocialLinks } from "@/components/ui/Social";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/lib/data";
 import { site } from "@/lib/site";
@@ -30,7 +29,6 @@ export function Footer() {
             <p className="max-w-[466px] text-[15px] leading-6">
               Your trusted courier partner for fast, secure and dependable deliveries. We keep your business moving with flexible delivery solutions across the United Kingdom.
             </p>
-            <SocialLinks />
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 max-md:gap-x-4 max-md:gap-y-8 md:grid-cols-3 lg:justify-self-end lg:gap-[72px]">

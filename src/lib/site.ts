@@ -23,11 +23,6 @@ export const site = {
     { day: "Sunday", time: "TBC" },
     { day: "Bank holidays", time: "TBC" },
   ],
-  social: {
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
-    x: "https://x.com/",
-  },
 } as const;
 
 export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.postcode}`;

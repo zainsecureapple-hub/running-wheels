@@ -9,7 +9,6 @@ import { ChevronRight, Menu, Phone, X } from "lucide-react";
 import { nav, site } from "@/lib/site";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
-import { SocialLinks } from "@/components/ui/Social";
 import { setSmoothScrollPaused } from "@/components/SmoothScroll";
 
 export function Header() {
@@ -171,15 +170,12 @@ export function Header() {
               <Button href={cta.href} variant="primary" className="w-full justify-between" tabIndex={open ? 0 : -1}>
                 {cta.label}
               </Button>
-              <div className={clsx("flex items-center gap-4", site.phone ? "justify-between" : "justify-start")}>
-                {site.phone && (
-                  <a href={`tel:${site.phone}`} tabIndex={open ? 0 : -1} className="inline-flex items-center gap-2 text-[15px] font-medium text-white/80 hover:text-white">
-                    <Phone className="size-4" aria-hidden />
-                    {site.phone}
-                  </a>
-                )}
-                <SocialLinks />
-              </div>
+              {site.phone && (
+                <a href={`tel:${site.phone}`} tabIndex={open ? 0 : -1} className="inline-flex items-center gap-2 text-[15px] font-medium text-white/80 hover:text-white">
+                  <Phone className="size-4" aria-hidden />
+                  {site.phone}
+                </a>
+              )}
               <p className="text-[13px] leading-[1.4] text-white">
                 © {new Date().getFullYear()} {site.name}. All rights reserved.
               </p>

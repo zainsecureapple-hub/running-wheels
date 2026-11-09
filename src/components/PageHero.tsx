@@ -31,9 +31,17 @@ export function PageHero({
   return (
     <section
       aria-labelledby="page-title"
-      className={clsx("relative isolate h-[100svh] w-full overflow-hidden", size === "default" ? "min-h-[640px]" : "min-h-[480px]")}
+      className={clsx(
+        "relative isolate w-full overflow-hidden md:h-[100svh]",
+        size === "default" ? "min-h-[max(640px,100svh)] md:min-h-[640px]" : "min-h-[max(480px,100svh)] md:min-h-[480px]",
+      )}
     >
-      <div className="hero-reveal absolute inset-0 max-md:inset-[10px] overflow-hidden bg-[#50352e]">
+      <div
+        className={clsx(
+          "hero-reveal relative overflow-hidden bg-[#50352e] md:absolute md:inset-0 md:min-h-0",
+          size === "default" ? "min-h-[max(640px,100svh)]" : "min-h-[max(480px,100svh)]",
+        )}
+      >
         <div className="absolute inset-0 overflow-hidden">
           <Image src={image} alt="" fill priority sizes="100vw" className="hero-kenburns object-cover" />
         </div>
@@ -45,10 +53,12 @@ export function PageHero({
           className="absolute inset-0 bg-[linear-gradient(180deg,#000_0%,rgba(102,102,102,0)_58%),linear-gradient(90deg,rgba(14,15,18,0.3),rgba(14,15,18,0.3))]"
         />
 
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col px-5 max-md:px-4 sm:px-10 lg:px-[60px]">
+        {/* max-md:py-[92px]: matches the fixed Header's unscrolled height (22px padding top/bottom + 48px logo), kept
+            equal top/bottom so justify-center lands the content at the true vertical center of the hero. */}
+        <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-5 max-md:px-4 sm:px-10 lg:px-[60px] md:h-full max-md:min-h-[100svh] max-md:justify-center max-md:py-[92px]">
           <div
             className={clsx(
-              "mt-auto flex flex-col items-start gap-7 pb-10 pt-24 max-md:pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-[60px]",
+              "flex flex-col items-start gap-7 md:mt-auto md:pb-10 md:pt-24 lg:pb-[60px]",
               contentWidth,
             )}
           >
@@ -68,7 +78,7 @@ export function PageHero({
                 </p>
               </div>
             </div>
-            <Button href={cta.href} className="hero-in" style={{ animationDelay: "900ms" }}>{cta.label}</Button>
+            <Button href={cta.href} className="hero-in" mobileFullWidth={false} style={{ animationDelay: "900ms" }}>{cta.label}</Button>
           </div>
         </div>
 

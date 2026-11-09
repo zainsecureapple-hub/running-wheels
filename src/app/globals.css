@@ -192,20 +192,8 @@
   }
 }
 
-/* Mobile keeps the same reveal timing/easing but rests as a rounded inset card
-   (matching the mobile Figma frame) instead of animating out to full-bleed. */
-@media (max-width: 767px) {
-  @keyframes hero-reveal {
-    from { transform: scale(0.82) translateY(14px); border-radius: 28px; }
-    to { transform: scale(1) translateY(0); border-radius: 28px; }
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal { animation: none; transform: none; border-radius: 0; }
-  @media (max-width: 767px) {
-    .hero-reveal { border-radius: 28px; }
-  }
   .hero-kenburns { animation: none; transform: scale(1.06); }
   .hero-streaks { animation: none; }
   .hero-glow { animation: none; opacity: 0.5; }
