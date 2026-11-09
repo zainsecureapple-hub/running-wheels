@@ -2,7 +2,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { Check } from "lucide-react";
 import type { ReactNode } from "react";
-import { Button, TextLink } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Appear } from "@/components/ui/Appear";
 import { ParallaxImage } from "@/components/ui/ParallaxImage";
 import { Reveal } from "@/components/ui/Reveal";
@@ -49,12 +49,7 @@ export function FeatureRow({ title, image, imageAlt, imageSide = "right", cta, p
               ))}
             </ul>
           )}
-          {cta && (
-            <>
-              <TextLink href={cta.href} className="py-1 tracking-[-0.02em] max-md:hidden">{cta.label}</TextLink>
-              <Button href={cta.href} variant="light" className="hidden max-md:flex">{cta.label}</Button>
-            </>
-          )}
+          {cta && <Button href={cta.href} variant="light" mobileFullWidth={false}>{cta.label}</Button>}
         </div>
       </Appear>
       <Appear

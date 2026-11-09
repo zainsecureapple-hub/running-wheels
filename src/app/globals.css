@@ -387,11 +387,13 @@
 .btn:focus-visible .btn-fill { transform: scale(14); }
 .btn:focus-visible .btn-label,
 .btn:focus-visible .btn-circle { color: var(--btn-hover-text, inherit); }
+.btn:focus-visible:not(:disabled) .btn-circle { background-color: transparent; }
 
 @media (hover: hover) {
   .btn:hover .btn-fill { transform: scale(14); }
   .btn:hover .btn-label,
   .btn:hover .btn-circle { color: var(--btn-hover-text, inherit); }
+  .btn:hover:not(:disabled) .btn-circle { background-color: transparent; }
 }
 
 .btn:disabled .btn-fill { transform: scale(1) !important; }

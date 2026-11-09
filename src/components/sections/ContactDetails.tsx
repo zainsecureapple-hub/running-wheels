@@ -19,7 +19,7 @@ function Card({ icon: Icon, label, children, delay = 0 }: { icon: typeof Clock; 
 
 export function ContactDetails() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 lg:sticky lg:top-24 lg:self-start">
       <Reveal as="div" className="flex flex-col gap-[18px]">
         <p className="text-xs font-medium uppercase tracking-[0.32em] text-muted">Contact</p>
         <h2 className="text-[clamp(2.25rem,1.6rem+2.2vw,3rem)] font-semibold leading-[1.04] tracking-[-0.04em] text-ink">

@@ -20,6 +20,9 @@ type Common = {
   icon?: LucideIcon;
   children: ReactNode;
   className?: string;
+  /** Set false to keep the pill at its natural (fit-content) width on mobile instead of stretching
+   *  full-width with the icon pushed to the far edge. Defaults to true (hero/menu CTAs want full-width). */
+  mobileFullWidth?: boolean;
 };
 
 type AsLink = Common & { href: string } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "className" | "children">;
@@ -31,11 +34,11 @@ type AsButton = Common & { href?: undefined } & Omit<ButtonHTMLAttributes<HTMLBu
  * the label and icon colours cross-fade to stay readable. Pill size never changes.
  */
 export function Button(props: AsLink | AsButton) {
-  const { variant = "primary", icon: Icon = ArrowUpRight, children, className, style, ...rest } = props as (AsLink | AsButton) & { style?: CSSProperties };
+  const { variant = "primary", icon: Icon = ArrowUpRight, children, className, style, mobileFullWidth = true, ...rest } = props as (AsLink | AsButton) & { style?: CSSProperties };
   const v = variants[variant];
   const classes = clsx(
-    "btn inline-flex items-center gap-3.5 rounded-full py-1.5 pl-[26px] pr-1.5 text-[15px] font-medium whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-60",
-    "max-md:w-full max-md:justify-between",
+    "btn inline-flex w-fit items-center gap-3.5 rounded-full py-1.5 pl-[26px] pr-1.5 text-[15px] font-medium whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-60",
+    mobileFullWidth && "max-md:w-full max-md:justify-between",
     v.wrap,
     className,
   );
