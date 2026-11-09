@@ -16,7 +16,6 @@
     { "out": "home-gallery-3.png",     "node": "2:395",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — bottom right" },
     { "out": "home-feature-1.png",     "node": "2:508",  "mode": "render", "scale": 2, "note": "Home feature row 1 photo" },
     { "out": "home-feature-2.png",     "node": "2:510",  "mode": "render", "scale": 2, "note": "Home feature row 2 photo" },
-    { "out": "branch-map.png",         "node": "2:1196", "mode": "render", "scale": 2, "note": "Our Branch map illustration" },
     { "out": "about-1.png",            "node": "2:1686", "mode": "render", "scale": 2, "note": "About row 1 photo" },
     { "out": "about-2.png",            "node": "2:1688", "mode": "render", "scale": 2, "note": "About row 2 photo" },
 

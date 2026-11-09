@@ -31,7 +31,9 @@ export const site = {
 } as const;
 
 export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.postcode}`;
-export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}`;
+const mapsQuery = `${fullAddress}, UK`;
+export const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed`;
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapsQuery)}`;
 
 export const nav = [
   { label: "Home", href: "/" },

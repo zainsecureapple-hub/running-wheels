@@ -1,11 +1,8 @@
-import Image from "next/image";
 import { Building2, Clock, Mail, MapPin, Navigation, Phone } from "lucide-react";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Appear } from "@/components/ui/Appear";
-import { ParallaxImage } from "@/components/ui/ParallaxImage";
-import { directionsUrl, fullAddress, site } from "@/lib/site";
-import { images } from "@/lib/images";
+import { directionsUrl, fullAddress, mapEmbedUrl, site } from "@/lib/site";
 
 const callHref = site.phone ? `tel:${site.phone.replace(/\s+/g, "")}` : "/contact#enquiry";
 
@@ -47,9 +44,16 @@ export function BranchOverview() {
             </div>
           </Appear>
           <Appear variant="slide-right" delay={0.1} className="relative min-h-[300px] overflow-hidden rounded-[20px] bg-[#eaf2fb] sm:min-h-[380px] lg:min-h-[488px]">
-            <ParallaxImage>
-              <Image src={images.branchMap} alt={`Map showing the Running Wheels branch at ${fullAddress}`} fill sizes="(min-width: 1024px) 608px, 100vw" className="object-cover" />
-            </ParallaxImage>
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Running Wheels Aberdeen location"
+              className="absolute inset-0"
+            />
           </Appear>
         </div>
       </div>

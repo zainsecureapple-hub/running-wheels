@@ -15,7 +15,6 @@ export const images = {
   homeGallery3: "/images/home-gallery-3.png",
   homeFeature1: "/images/home-feature-1.png",
   homeFeature2: "/images/home-feature-2.png",
-  branchMap: "/images/branch-map.png",
   about1: "/images/about-1.png",
   about2: "/images/about-2.png",
   teamAvatars: "/images/team-avatars.svg",
