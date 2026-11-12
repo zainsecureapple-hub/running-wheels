@@ -7,6 +7,7 @@ import { StatsBand } from "@/components/sections/StatsBand";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { FeatureBlock, FeatureRow } from "@/components/sections/FeatureRow";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
+import { FreightSection } from "@/components/sections/FreightSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { faqs } from "@/lib/data";
 import { images } from "@/lib/images";
@@ -80,6 +81,7 @@ export default function HomePage() {
         </FeatureRow>
       </FeatureBlock>
       <IndustriesSection />
+      <FreightSection />
       <FaqSection />
       <JsonLd data={faqJsonLd(faqs)} />
     </>

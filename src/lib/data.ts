@@ -158,10 +158,11 @@ export const aboutPoints = [
 ];
 
 /* ------------------------------------------------------------- Team content */
-/** TODO(client): sample team from Figma — replace names, roles and photos. */
 export const team = [
-  { name: "Callum Reid", role: "Operations Manager", bio: "Keeps every booking on track, from the first enquiry to the final drop-off.", image: "/images/team-1.png" },
-  { name: "Fiona MacLeod", role: "Customer Service Lead", bio: "Your first point of contact for quotes, bookings and any questions along the way.", image: "/images/team-2.png" },
-  { name: "Jamie Stewart", role: "Senior Driver", bio: "Handles same-day and multi-drop runs, making sure every delivery arrives safely.", image: "/images/team-3.png" },
-  { name: "Ross Davidson", role: "Removals Specialist", bio: "Plans and carries out home and business moves with care, big or small.", image: "/images/team-4.png" },
+  { name: "Rajneesh Rattan", role: "Director", bio: "Leads Running Wheels Aberdeen, setting the direction for every service and keeping the business moving forward.", image: "/images/team-1.png" },
+  { name: "Bonny Anand", role: "Account Manager", bio: "Looks after our business customers, from first quote to ongoing accounts, so every client gets the service they need.", image: "/images/team-2.png" },
+  { name: "Scott Findlay", role: "Fleet Manager", bio: "Keeps our vans road-ready, safe and on schedule, so every collection and delivery runs smoothly.", image: "/images/team-3.png" },
+  { name: "Samantha Dunbar", role: "Receptionist", bio: "Your first point of contact for calls, enquiries and bookings, making sure every customer is looked after.", image: "/images/team-4.png" },
+  { name: "Blazej Graczyk", role: "Removal Specialist", bio: "Plans and carries out home and business moves with care, big or small.", image: "/images/team-5.png" },
+  { name: "Muhammad Rizwan", role: "Contractor Dispatcher & Claims Handler Support", bio: "Coordinates drivers and routes, and supports customers with any delivery claims.", image: "/images/team-6.png" },
 ];

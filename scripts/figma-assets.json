@@ -16,12 +16,15 @@
     { "out": "home-gallery-3.png",     "node": "2:395",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — bottom right" },
     { "out": "home-feature-1.png",     "node": "2:508",  "mode": "render", "scale": 2, "note": "Home feature row 1 photo" },
     { "out": "home-feature-2.png",     "node": "2:510",  "mode": "render", "scale": 2, "note": "Home feature row 2 photo" },
+    { "out": "home-freight.png",       "node": "24:982", "mode": "render", "scale": 2, "note": "Home Global Air Freight section photo" },
     { "out": "about-1.png",            "node": "2:1686", "mode": "render", "scale": 2, "note": "About row 1 photo" },
     { "out": "about-2.png",            "node": "2:1688", "mode": "render", "scale": 2, "note": "About row 2 photo" },
 
-    { "out": "team-1.png",             "node": "2:1954", "mode": "fill",   "note": "Team photo — Callum Reid (sample)" },
-    { "out": "team-2.png",             "node": "2:1961", "mode": "fill",   "note": "Team photo — Fiona MacLeod (sample)" },
-    { "out": "team-3.png",             "node": "2:1968", "mode": "fill",   "note": "Team photo — Jamie Stewart (sample)" },
-    { "out": "team-4.png",             "node": "2:1975", "mode": "fill",   "note": "Team photo — Ross Davidson (sample)" }
+    { "out": "team-1.png",             "node": "2:1954", "mode": "render", "scale": 2, "note": "Team photo — Rajneesh Rattan, Director" },
+    { "out": "team-2.png",             "node": "2:1961", "mode": "render", "scale": 2, "note": "Team photo — Bonny Anand, Account Manager" },
+    { "out": "team-3.png",             "node": "2:1968", "mode": "render", "scale": 2, "note": "Team photo — Scott Findlay, Fleet Manager" },
+    { "out": "team-4.png",             "node": "32:979", "mode": "render", "scale": 2, "note": "Team photo — Samantha Dunbar, Receptionist" },
+    { "out": "team-5.png",             "node": "32:986", "mode": "render", "scale": 2, "note": "Team photo — Blazej Graczyk, Removal Specialist" },
+    { "out": "team-6.png",             "node": "32:993", "mode": "render", "scale": 2, "note": "Team photo — Muhammad Rizwan, Contractor Dispatcher & Claims Handler Support" }
   ]
 }

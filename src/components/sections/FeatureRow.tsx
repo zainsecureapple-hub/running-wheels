@@ -17,10 +17,15 @@ type Props = {
   children: ReactNode;
   /** Extra classes on the row's outer grid — e.g. `max-md:hidden` to drop a repeated row on mobile. */
   className?: string;
+  /** Id placed on the heading — set this (and pass the same value to the parent section's `aria-labelledby`) when the row is used standalone, i.e. not nested inside `FeatureBlock`. */
+  id?: string;
+  /** Use "h2" when the row is its own section (no `FeatureBlock` heading above it). Defaults to "h3" for rows nested inside `FeatureBlock`. */
+  headingLevel?: "h2" | "h3";
 };
 
-/** Alternating text card + photo row used on Home and About. Title is an <h3>. Text and photo slide in from opposite sides; the photo drifts with scroll. */
-export function FeatureRow({ title, image, imageAlt, imageSide = "right", cta, points, children, className }: Props) {
+/** Alternating text card + photo row used on Home and About. Title is an <h3> by default. Text and photo slide in from opposite sides; the photo drifts with scroll. */
+export function FeatureRow({ title, image, imageAlt, imageSide = "right", cta, points, children, className, id, headingLevel = "h3" }: Props) {
+  const Heading = headingLevel;
   const textVariant = imageSide === "left" ? "slide-right" : "slide-left";
   const photoVariant = imageSide === "left" ? "slide-left" : "slide-right";
   return (
@@ -34,7 +39,7 @@ export function FeatureRow({ title, image, imageAlt, imageSide = "right", cta, p
       >
         <div className="flex w-full max-w-[452px] flex-col gap-8 max-md:gap-5 lg:gap-12">
           <div className="flex flex-col gap-6 max-md:gap-3">
-            <h3 className="t-h3 text-ink">{title}</h3>
+            <Heading id={id} className="t-h3 text-ink">{title}</Heading>
             <div className="flex flex-col gap-5 text-lg leading-6 tracking-[-0.02em] text-muted max-md:text-base max-md:leading-[1.55]">{children}</div>
           </div>
           {points && (
