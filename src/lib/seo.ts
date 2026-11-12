@@ -49,7 +49,7 @@ export const organizationJsonLd = () => ({
     addressCountry: site.address.country,
   },
   areaServed: { "@type": "Country", name: "United Kingdom" },
-  openingHours: "Mo-Su 00:00-23:59",
+  openingHours: site.openingHoursSchema,
   ...(site.phone ? { telephone: site.phone } : {}),
   ...(site.email ? { email: site.email } : {}),
 });

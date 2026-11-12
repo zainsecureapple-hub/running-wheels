@@ -14,15 +14,18 @@ export const site = {
     postcode: "AB11 5BX",
     country: "GB",
   },
-  /** TODO(client): phone, email and opening hours are "To be confirmed" in the Figma file. */
-  phone: null as string | null,
-  email: null as string | null,
+  phone: "01224 953207" as string | null,
+  email: "info@runningwheels.com" as string | null,
   hours: [
-    { day: "Monday – Friday", time: "TBC" },
-    { day: "Saturday", time: "TBC" },
-    { day: "Sunday", time: "TBC" },
-    { day: "Bank holidays", time: "TBC" },
+    { day: "Monday – Friday", time: "9:00am – 5:00pm" },
+    { day: "Saturday", time: "Closed" },
+    { day: "Sunday", time: "Closed" },
+    { day: "Bank holidays", time: "Closed" },
   ],
+  /** Single-line summary for compact contact cards. Mirrors the Figma "Contact Details" card exactly. */
+  hoursSummary: "Mon – Fri, 9:00am – 5:00pm",
+  /** schema.org openingHours spec — https://schema.org/openingHours */
+  openingHoursSchema: "Mo-Fr 09:00-17:00",
 } as const;
 
 export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.postcode}`;

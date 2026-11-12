@@ -52,7 +52,7 @@ export function ContactDetails() {
         )}
       </Card>
       <Card icon={Clock} label="Opening hours" delay={0.18}>
-        <p className="text-base font-semibold text-muted">To be confirmed</p>
+        <p className="text-base font-semibold text-ink">{site.hoursSummary}</p>
       </Card>
     </div>
   );

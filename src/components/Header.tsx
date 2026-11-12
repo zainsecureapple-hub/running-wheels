@@ -171,7 +171,7 @@ export function Header() {
                 {cta.label}
               </Button>
               {site.phone && (
-                <a href={`tel:${site.phone}`} tabIndex={open ? 0 : -1} className="inline-flex items-center gap-2 text-[15px] font-medium text-white/80 hover:text-white">
+                <a href={`tel:${site.phone.replace(/\s+/g, "")}`} tabIndex={open ? 0 : -1} className="inline-flex items-center gap-2 text-[15px] font-medium text-white/80 hover:text-white">
                   <Phone className="size-4" aria-hidden />
                   {site.phone}
                 </a>

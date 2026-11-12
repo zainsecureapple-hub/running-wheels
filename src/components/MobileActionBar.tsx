@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 /** Persistent mobile-only quote/call bar, pinned above the safe area. Hidden at md and up. */
 export function MobileActionBar() {
-  const callHref = site.phone ? `tel:${site.phone}` : "/find-branch";
+  const callHref = site.phone ? `tel:${site.phone.replace(/\s+/g, "")}` : "/find-branch";
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-slate-100 bg-white/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-lg md:hidden">

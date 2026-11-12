@@ -10,6 +10,8 @@ export const images = {
   heroAbout: "/images/hero-about.png",
   heroTeam: "/images/hero-team.png",
   homeFloatingCard: "/images/home-floating-card.png",
+  homeFloatingCard2: "/images/home-floating-card-2.png",
+  homeFloatingCard3: "/images/home-floating-card-3.png",
   homeGallery1: "/images/home-gallery-1.png",
   homeGallery2: "/images/home-gallery-2.png",
   homeGallery3: "/images/home-gallery-3.png",

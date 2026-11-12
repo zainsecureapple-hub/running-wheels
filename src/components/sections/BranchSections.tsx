@@ -34,7 +34,7 @@ export function BranchOverview() {
                   <li className="flex items-start gap-3 text-ink"><MapPin className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden /><address className="not-italic">{fullAddress}</address></li>
                   <li className="flex items-start gap-3 text-muted"><Phone className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden />{site.phone ?? "Phone number to be confirmed"}</li>
                   <li className="flex items-start gap-3 text-muted"><Mail className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden />{site.email ?? "Email address to be confirmed"}</li>
-                  <li className="flex items-start gap-3 text-muted"><Clock className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden />Opening hours to be confirmed</li>
+                  <li className="flex items-start gap-3 text-muted"><Clock className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden />{site.hoursSummary}</li>
                 </ul>
               </div>
               <div className="flex flex-wrap gap-3">

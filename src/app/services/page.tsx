@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { FeatureBlock, FeatureRow } from "@/components/sections/FeatureRow";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -27,6 +28,7 @@ export default function ServicesPage() {
         cta={{ label: "Get a Quote", href: "/contact#enquiry" }}
       />
       <ServicesSection showAll />
+      <HowItWorksSection />
       <FeatureBlock
         id="services-trust-title"
         title="Simplifying Deliveries, Building Trust"

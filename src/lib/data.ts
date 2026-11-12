@@ -3,6 +3,7 @@ import {
   Activity, Clock, FileText, Home, LayoutGrid, MapPin, Package, Plane, ShieldCheck,
   Tag, Thermometer, Truck, Calendar, Zap,
 } from "lucide-react";
+import { images } from "@/lib/images";
 
 /* ------------------------------------------------------------------ Services */
 export type Service = {
@@ -97,6 +98,13 @@ export const homeServiceSlugs = [
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 
 /* ------------------------------------------------------------- Home content */
+/** Hero floating card — cycles through these industries. Figma nodes 49:979, 49:991, 49:1003. */
+export const heroFloatingCards = [
+  { title: "Retail & eCommerce", description: "Ecommerce orders moving quickly, securely", image: images.homeFloatingCard, alt: "Retail and eCommerce parcels being prepared for delivery" },
+  { title: "Construction", description: "Reliable delivery of materials and equipment.", image: images.homeFloatingCard2, alt: "Construction site manager directing material delivery" },
+  { title: "Medical and Pharmaceutical", description: "Safe delivery of medicines and supplies.", image: images.homeFloatingCard3, alt: "Pharmacist handing over medicines to a customer" },
+];
+
 export const whyFeatures = [
   { icon: Clock, title: "24/7 Availability", text: "Over 60 local teams on hand round the clock, day or night, all year." },
   { icon: Zap, title: "60-Minute Collection", text: "We collect within the hour of booking and deliver the same day." },

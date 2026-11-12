@@ -10,7 +10,9 @@
     { "out": "hero-about.png",         "node": "2:1605", "mode": "fill",   "note": "About hero" },
     { "out": "hero-team.png",          "node": "2:1882", "mode": "fill",   "note": "Our Team hero" },
 
-    { "out": "home-floating-card.png", "node": "2:360",  "mode": "render", "scale": 2, "note": "Home hero floating card photo" },
+    { "out": "home-floating-card.png", "node": "2:360",  "mode": "render", "scale": 2, "note": "Home hero floating card photo — Retail & eCommerce" },
+    { "out": "home-floating-card-2.png", "node": "49:992", "mode": "render", "scale": 2, "note": "Home hero floating card photo — Construction" },
+    { "out": "home-floating-card-3.png", "node": "49:1004", "mode": "render", "scale": 2, "note": "Home hero floating card photo — Medical and Pharmaceutical" },
     { "out": "home-gallery-1.png",     "node": "2:392",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — tall tile" },
     { "out": "home-gallery-2.png",     "node": "2:394",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — top right" },
     { "out": "home-gallery-3.png",     "node": "2:395",  "mode": "render", "scale": 2, "note": "Home 'Why' gallery — bottom right" },
